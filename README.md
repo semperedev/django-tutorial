@@ -15,9 +15,12 @@ Es indispensable tener conocimientos mínimos de:
 Es muy recomendable:
 
 * Programación orientada a objetos
-* CSS y JS
 
 ## 2. Qué es Django
+
+Django es un framework web escrito en Python que se define como:
+
+> El framework para perfeccionistas con fechas de entrega.
 
 ## 3. Instalar Django
 
