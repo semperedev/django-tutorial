@@ -2,7 +2,7 @@
 
 {% block content %}
     {% for entrada in object_list %}
-        <h1>{{ entrada.titulo }}</h1>
+        <h1><a href="{% url 'detalle' entrada.id %}">{{ entrada.titulo }}</a></h1>
         <p>{{ entrada.texto }}</p>
     {% endfor %}
 {% endblock content %}
