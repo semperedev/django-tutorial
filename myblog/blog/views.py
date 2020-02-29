@@ -9,4 +9,3 @@ class VistaIndice(TemplateView):
 
 class VistaLista(ListView):
     model = Entrada
-    template_name = 'entradas.html'
