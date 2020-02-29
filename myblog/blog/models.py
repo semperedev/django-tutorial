@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+
+class Entrada(models.Model):
+
+    titulo = models.CharField('título', max_length=140)
+
+    texto = models.TextField('texto', max_length=1000)
