@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def vista_indice(request):
+    return render(request, 'index.html')
