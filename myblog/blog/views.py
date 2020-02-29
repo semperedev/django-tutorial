@@ -1,4 +1,4 @@
-from django.views.generic import ListView, TemplateView
+from django.views.generic import DetailView, ListView, TemplateView
 
 from .models import Entrada
 
@@ -8,4 +8,8 @@ class VistaIndice(TemplateView):
 
 
 class VistaLista(ListView):
+    model = Entrada
+
+
+class VistaDetalle(DetailView):
     model = Entrada
