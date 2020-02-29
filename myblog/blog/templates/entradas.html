@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for entrada in object_list %}
+        <h1>{{ entrada.titulo }}</h1>
+        <p>{{ entrada.texto }}</p>
+    {% endfor %}
+{% endblock content %}
