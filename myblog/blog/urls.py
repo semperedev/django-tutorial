@@ -1,7 +1,7 @@
 from django.urls import path
 
-from .views import vista_indice
+from .views import VistaIndice
 
 urlpatterns = [
-    path('', vista_indice),
+    path('', VistaIndice.as_view()),
 ]

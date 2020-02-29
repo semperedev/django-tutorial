@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-def vista_indice(request):
-    return render(request, 'index.html')
+
+class VistaIndice(TemplateView):
+    template_name = 'index.html'
