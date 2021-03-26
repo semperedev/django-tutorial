@@ -5,5 +5,5 @@ from .views import VistaIndice, VistaLista, VistaDetalle
 urlpatterns = [
     path('', VistaIndice.as_view(), name='indice'),
     path('entradas/', VistaLista.as_view(), name='lista'),
-    path('entrada/<pk>/', VistaDetalle.as_view(), name='detalle'),
+    path('entradas/<pk>/', VistaDetalle.as_view(), name='detalle'),
 ]
