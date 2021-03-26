@@ -480,6 +480,47 @@ También vamos a agregar un enlace de vuelta a la lista en la vista detalle:
 {% endblock content %}
 ```
 
-## 8. Siguientes pasos
+## 8. Utilizando el sistema de usuarios de Django
+
+A continuación, vamos a agregar un campo _autor_ al modelo Entrada, de forma que podamos mostrar quién ha escrito cada entrada del blog; pero vamos a permitir que las entradas puedan ser anónimas, es decir, que no tengan asociado ningún usuario. Para ello, agregamos un campo de clave foránea al modelo, e indicamos que debe ser hacia el modelo de usuario que nos crea Django, y que debe permitir nulos (`null=True`) y que el formulario del panel de administración nos deje crear una entrada con ese campo en blanco (`blank=True`):
+
+```python
+from django.contrib.auth import get_user_model
+
+class Entrada(models.Model):
+    ...
+
+    user = models.ForeignKey(
+        get_user_model(), models.CASCADE,
+        null=True, blank=True
+    )
+
+    ...
+```
+
+Ahora solamente tendríamos que crear y ejecutar una migración para este nuevo campo:
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+Si queremos mostrar el campo en nuestros templates, solamente tenemos que imprimir el usuario como cualquier otro atributo del objeto:
+
+```html
+<h3>By: {{ object.autor.username }}</h3>
+```
+
+Pero esto quedaría muy feo cuando no hubiese un autor definido, entonces vamos a encapsularlo en un bloque condicional:
+
+```html
+{% if object.autor %}
+    <h3>By: {{ object.autor.username }}</h3>
+{% endif %}
+```
+
+Así, cuando no exista un valor para el campo `autor`, no se mostrará la etiqueta `h3`.
+
+## 9. Siguientes pasos
 
 En la documentación de Django hay un tutorial mucho más extenso y con más detalle: [https://docs.djangoproject.com/en/3.0/intro/tutorial01/](Tutorial Django 3.0).

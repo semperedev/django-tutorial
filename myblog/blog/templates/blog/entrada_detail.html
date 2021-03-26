@@ -4,5 +4,8 @@
     <p><a href="{% url 'lista' %}">Volver a la lista</a></p>
 
     <h1>{{ object.titulo }}</h1>
+    {% if object.autor %}
+        <h3>By: {{ object.autor.username }}</h3>
+    {% endif %}
     <p>{{ object.texto }}</p>
 {% endblock content %}
